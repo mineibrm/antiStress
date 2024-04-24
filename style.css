@@ -13,10 +13,11 @@ body {
 }
 
 .breathing-box {
-    width: 100px;
+    width: 100px; /* Starting diameter */
     height: 100px;
     background-color: #4caf50; /* Green color */
-    animation: breathing-cycle 16s infinite;
+    border-radius: 50%; /* This makes it a circle */
+    animation: breathing-cycle 16s infinite; /* 16-second cycle */
     position: relative;
 }
 
@@ -32,21 +33,21 @@ body {
 
 @keyframes breathing-cycle {
     0% {
-        transform: scale(1);
+        transform: scale(1); /* Normal size */
         background-color: #4caf50; /* Green (Inhale) */
     }
     25% {
-        transform: scale(2);
+        transform: scale(2); /* Doubling size (Inhale) */
     }
     50% {
         transform: scale(2);
         background-color: #ffeb3b; /* Yellow (Hold) */
     }
     75% {
-        transform: scale(1);
+        transform: scale(1); /* Back to normal (Exhale) */
     }
     100% {
         transform: scale(1);
-        background-color: #f44336; /* Red (Exhale) */
+        background-color: #f44336; /* Red (Hold) */
     }
 }
