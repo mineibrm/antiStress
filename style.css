@@ -5,7 +5,7 @@ body {
     height: 100vh; /* Occupy full viewport height */
     padding: 0;
     margin: 0;
-    overflow: hidden; /* To prevent scrollbars during animation */
+    overflow: hidden; /* Prevent scrollbars during animation */
 }
 
 .breathing-visual {
@@ -18,10 +18,10 @@ body {
 .breathing-box {
     width: 100px; /* Base diameter */
     height: 100px;
-    background: linear-gradient(135deg, #4682B4, #4682B4); /* Steel blue */
+    background-color: #4682B4; /* Base blue color */
     border-radius: 50%; /* Circular shape */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    animation: breathing-cycle 19s infinite, border-rotation 19s linear infinite; /* Combined animations */
+    border: 5px solid transparent; /* Transparent to show progress bar */
+    animation: breathing-cycle 19s infinite; /* Expand and contract cycle */
     position: relative;
 }
 
@@ -32,33 +32,28 @@ body {
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
     font-size: 20px;
-    color: #fff;
+    color: white; /* White text color for better contrast */
 }
 
 @keyframes breathing-cycle {
     0% {
         transform: scale(1);
-        background: linear-gradient(135deg, #4682B4, #4682B4); /* Blue (Initial) */
+        border-color: #4682B4; /* Blue (Initial - Exhale) */
     }
     21.05% {
         transform: scale(2); /* Inhale (4 seconds) */
-        background: linear-gradient(135deg, #4682B4, #87CEEB); /* Gradient blue */
+        border-color: #4682B4; /* Progress bar blue */
+    }
+    42.11% {
+        transform: scale(2);
+        border-color: #FFD700; /* Yellow (Hold) */
     }
     63.16% {
-        transform: scale(2); /* Hold (7.5 seconds) */
-        background: linear-gradient(135deg, #4682B4, #FFD700); /* Gradient yellow */
-    }
-    100% {
         transform: scale(1); /* Exhale (7.5 seconds) */
-        background: linear-gradient(135deg, #4682B4, #DC143C); /* Gradient crimson */
-    }
-}
-
-@keyframes border-rotation {
-    0% {
-        transform: rotate(0deg);
+        border-color: #DC143C; /* Crimson (Exhale) */
     }
     100% {
-        transform: rotate(360deg);
+        transform: scale(1);
+        border-color: #DC143C; /* End in crimson for exhale */
     }
 }
