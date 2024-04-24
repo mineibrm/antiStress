@@ -13,4 +13,4 @@ setInterval(() => {
     const now = new Date().getTime() % 19000; // 19s cycle
     const timeInSeconds = now / 1000;
     updateInstruction(timeInSeconds);
-}, 100); // Update every 100m
+}, 1000); // Update every 100m
