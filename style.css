@@ -41,11 +41,11 @@ body {
         border-color: #4682B4; /* Border color for inhale */
     }
     21.05% {
-        transform: scale(2); /* Inhale for 4 seconds (Expanding) */
+        transform: scale(3); /* Inhale for 4 seconds (Expanding) */
         border-color: #4682B4; /* Border color during inhale */
     }
     57.89% {
-        transform: scale(2); /* Hold for 7 seconds (Steady) */
+        transform: scale(3); /* Hold for 7 seconds (Steady) */
         border-color: #FFD700; /* Yellow during hold */
     }
     100% {
@@ -53,4 +53,3 @@ body {
         border-color: #DC143C; /* Red for exhale */
     }
 }
-
