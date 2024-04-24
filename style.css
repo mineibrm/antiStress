@@ -7,11 +7,21 @@ body {
     margin: 0;
 }
 
+.page-title {
+    padding-top: 20px; /* Padding at the top to create space */
+}
+
+.page-title h1 {
+    font-size: 36px; /* Larger font size for the title */
+    color: #4682B4; /* Matching the circle color */
+    font-weight: bold; /* Making the text bold */
+}
+
 .breathing-visual {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Full viewport height */
+    height: calc(100vh - 60px); /* Full viewport height, minus the space for the title */
 }
 
 .breathing-box {
@@ -20,8 +30,8 @@ body {
     background-color: #4682B4; /* Steel blue */
     border-radius: 50%; /* Circular shape */
     border: 5px solid transparent; /* Transparent border for animation */
-    animation: breathing-cycle 19s infinite; /* Adjusted to 19s cycle */
     position: relative;
+    animation: breathing-cycle 19s infinite, border-rotation 19s infinite linear; /* Simultaneous animations */
 }
 
 .breathing-text {
@@ -36,11 +46,11 @@ body {
 
 @keyframes breathing-cycle {
     0% {
-        transform: scale(1);
-        border-top-color: #4682B4; /* Blue (Initial) */
+        transform: scale(1); /* Normal size */
+        border-top-color: #4682B4; /* Blue (Inhale) */
     }
     21.05% {
-        transform: scale(2); /* Inhale (4 seconds) */
+        transform: scale(2); /* Inhaling (4 seconds) */
     }
     63.16% {
         transform: scale(2);
@@ -54,9 +64,9 @@ body {
 
 @keyframes border-rotation {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* Start */
     }
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* Full rotation */
     }
 }
