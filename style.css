@@ -37,19 +37,19 @@ body {
 
 @keyframes breathing-cycle {
     0% {
-        transform: scale(1); /* Start at base size */
+        transform: scale(1); /* Base size (Start) */
         border-color: #4682B4; /* Border color for inhale */
     }
     21.05% {
-        transform: scale(2); /* Inhale for 4 seconds (Expanding) */
+        transform: scale(2); /* Inhale (4 seconds) */
         border-color: #4682B4; /* Border color during inhale */
     }
     57.89% {
-        transform: scale(2); /* Hold for 7 seconds (Steady) */
-        border-color: #FFD700; /* Yellow during hold */
+        transform: scale(2); /* Hold (7 seconds, steady) */
+        border-color: #FFD700; /* Yellow for hold */
     }
     100% {
-        transform: scale(1); /* Exhale for 8 seconds (Contracting) */
+        transform: scale(1); /* Exhale (8 seconds, contracting) */
         border-color: #DC143C; /* Red for exhale */
     }
 }
