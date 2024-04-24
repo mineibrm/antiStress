@@ -5,6 +5,7 @@ body {
     height: 100vh; /* Occupy full viewport height */
     padding: 0;
     margin: 0;
+    overflow: hidden; /* To prevent scrollbars during animation */
 }
 
 .breathing-visual {
@@ -17,10 +18,10 @@ body {
 .breathing-box {
     width: 100px; /* Base diameter */
     height: 100px;
-    background-color: #4682B4; /* Steel blue */
+    background: linear-gradient(135deg, #4682B4, #4682B4); /* Steel blue */
     border-radius: 50%; /* Circular shape */
-    border: 5px solid transparent; /* Transparent border for animation */
-    animation: breathing-cycle 19s infinite; /* Adjusted to 19s cycle */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    animation: breathing-cycle 19s infinite, border-rotation 19s linear infinite; /* Combined animations */
     position: relative;
 }
 
@@ -37,18 +38,19 @@ body {
 @keyframes breathing-cycle {
     0% {
         transform: scale(1);
-        border-top-color: #4682B4; /* Blue (Initial) */
+        background: linear-gradient(135deg, #4682B4, #4682B4); /* Blue (Initial) */
     }
     21.05% {
         transform: scale(2); /* Inhale (4 seconds) */
+        background: linear-gradient(135deg, #4682B4, #87CEEB); /* Gradient blue */
     }
     63.16% {
-        transform: scale(2);
-        border-top-color: #FFD700; /* Yellow (Hold) */
+        transform: scale(2); /* Hold (7.5 seconds) */
+        background: linear-gradient(135deg, #4682B4, #FFD700); /* Gradient yellow */
     }
     100% {
-        transform: scale(1);
-        border-top-color: #DC143C; /* Crimson (Exhale) */
+        transform: scale(1); /* Exhale (7.5 seconds) */
+        background: linear-gradient(135deg, #4682B4, #DC143C); /* Gradient crimson */
     }
 }
 
