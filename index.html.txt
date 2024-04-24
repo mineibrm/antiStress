@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stress Management and Breathing Exercises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .breathing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            background-color: #e0e0e0;
+        }
+        .breathing-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #6c8ae4;
+            animation: breathing 6s infinite;
+        }
+        @keyframes breathing {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Stress Management and Breathing Exercises</h1>
+    <div class="content">
+        <p>Managing stress is crucial for a healthy lifestyle. Below is a simple breathing exercise to help you relax.</p>
+        <div class="breathing-container">
+            <div class="breathing-circle"></div>
+        </div>
+    </div>
+</body>
+</html>
