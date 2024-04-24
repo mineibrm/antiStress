@@ -1,19 +1,16 @@
 const breathingInstruction = document.getElementById('breathing-instruction');
 
 function updateInstruction(time) {
-    if (time < 4) {
+    if (time < 4) { // Inhale phase (first 4 seconds)
         breathingInstruction.textContent = 'Inhale';
-    } else if (time < 8) {
+    } else if (time < 11) { // Hold phase (4-11 seconds)
         breathingInstruction.textContent = 'Hold';
-    } else if (time < 12) {
+    } else { // Exhale phase (11-19 seconds)
         breathingInstruction.textContent = 'Exhale';
-    } else {
-        breathingInstruction.textContent = 'Hold';
     }
 }
-
 setInterval(() => {
-    const now = new Date().getTime() % 16000; // 16s cycle
+    const now = new Date().getTime() % 19000; // 19s cycle
     const timeInSeconds = now / 1000;
     updateInstruction(timeInSeconds);
-}, 100); // Update every 100ms for smoother text transition
+}, 1000); // Update every 100m
