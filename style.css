@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.breathing-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.breathing-box {
+    width: 100px;
+    height: 100px;
+    background-color: #4caf50; /* Green color */
+    animation: breathing-cycle 16s infinite;
+    position: relative;
+}
+
+.breathing-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%); /* Center the text vertically */
+    font-size: 20px;
+    color: #fff;
+}
+
+@keyframes breathing-cycle {
+    0% {
+        transform: scale(1);
+        background-color: #4caf50; /* Green (Inhale) */
+    }
+    25% {
+        transform: scale(2);
+    }
+    50% {
+        transform: scale(2);
+        background-color: #ffeb3b; /* Yellow (Hold) */
+    }
+    75% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+        background-color: #f44336; /* Red (Exhale) */
+    }
+}
