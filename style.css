@@ -7,66 +7,56 @@ body {
     margin: 0;
 }
 
-.page-title {
-    padding-top: 20px; /* Padding at the top for spacing */
-}
-
-.page-title h1 {
-    font-size: 36px; /* Larger font size for the title */
-    color: #4682B4; /* Matching the circle color */
-    font-weight: bold; /* Bold style */
-}
-
 .breathing-visual {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: calc(100vh - 60px); /* Full viewport height minus space for title */
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Full viewport height */
 }
 
-.breathing-circle {
-    width: 100px; /* Diameter of the circle */
+.breathing-box {
+    width: 100px; /* Base diameter */
     height: 100px;
-    background-color: #4682B4; /* Steel blue for visibility */
+    background-color: #4682B4; /* Steel blue */
     border-radius: 50%; /* Circular shape */
-    border: 5px solid transparent; /* Border for rotation */
-    animation: breathing-cycle 19s infinite, border-rotation 19s infinite linear; /* Combined animations */
-    position: relative; /* Required for text positioning */
+    border: 5px solid transparent; /* Transparent border for animation */
+    animation: breathing-cycle 19s infinite; /* Adjusted to 19s cycle */
+    position: relative;
 }
 
 .breathing-text {
-    position: absolute; /* Required for absolute positioning within the circle */
-    width: 100%; /* Full width */
-    text-align: center; /* Center text horizontally */
-    top: 50%; /* Center text vertically */
-    transform: translateY(-50%); /* Offset to center vertically */
-    font-size: 20px; /* Text size */
-    color: #fff; /* White for visibility */
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    font-size: 20px;
+    color: #fff;
 }
 
 @keyframes breathing-cycle {
     0% {
-        transform: scale(1); /* Normal size */
-        border-top-color: #4682B4; /* Blue for the initial phase */
+        transform: scale(1);
+        border-top-color: #4682B4; /* Blue (Initial) */
     }
     21.05% {
-        transform: scale(2); /* Inhaling (4 seconds) */
+        transform: scale(2); /* Inhale (4 seconds) */
     }
     63.16% {
         transform: scale(2);
-        border-top-color: #FFD700; /* Yellow for the hold phase */
+        border-top-color: #FFD700; /* Yellow (Hold) */
     }
     100% {
-        transform: scale(1); /* Returning to normal size */
-        border-top-color: #DC143C; /* Crimson for the exhale phase */
+        transform: scale(1);
+        border-top-color: #DC143C; /* Crimson (Exhale) */
     }
 }
 
 @keyframes border-rotation {
     0% {
-        transform: rotate(0deg); /* Start position */
+        transform: rotate(0deg);
     }
     100% {
-        transform: rotate(360deg); /* Full rotation */
+        transform: rotate(360deg);
     }
 }
