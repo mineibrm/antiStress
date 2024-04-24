@@ -18,9 +18,9 @@ body {
 .breathing-box {
     width: 100px; /* Base diameter */
     height: 100px;
-    background-color: #4682B4; /* Base blue color */
+    background-color: #4682B4; /* Steel blue */
     border-radius: 50%; /* Circular shape */
-    border: 5px solid transparent; /* Transparent to show progress bar */
+    border: 5px solid transparent; /* Base transparent border */
     animation: breathing-cycle 19s infinite; /* Expand and contract cycle */
     position: relative;
 }
@@ -32,28 +32,24 @@ body {
     top: 50%;
     transform: translateY(-50%); /* Center vertically */
     font-size: 20px;
-    color: white; /* White text color for better contrast */
+    color: white; /* White text color for contrast */
 }
 
 @keyframes breathing-cycle {
     0% {
-        transform: scale(1);
-        border-color: #4682B4; /* Blue (Initial - Exhale) */
+        transform: scale(1); /* Start at base size */
+        border-color: #4682B4; /* Blue (Inhale) */
     }
     21.05% {
         transform: scale(2); /* Inhale (4 seconds) */
-        border-color: #4682B4; /* Progress bar blue */
+        border-color: #4682B4; /* Progress bar color during inhale */
     }
     42.11% {
-        transform: scale(2);
+        transform: scale(2); /* Hold (3.5 seconds) */
         border-color: #FFD700; /* Yellow (Hold) */
     }
-    63.16% {
-        transform: scale(1); /* Exhale (7.5 seconds) */
-        border-color: #DC143C; /* Crimson (Exhale) */
-    }
     100% {
-        transform: scale(1);
-        border-color: #DC143C; /* End in crimson for exhale */
+        transform: scale(1); /* Exhale (11.5 seconds) */
+        border-color: #DC143C; /* Crimson (Exhale) */
     }
 }
