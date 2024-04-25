@@ -23,4 +23,4 @@ function getCycleTime() {
 setInterval(() => {
     const timeInSeconds = getCycleTime();
     updateInstruction(timeInSeconds);
-}, 1); // Use a smaller interval for more accurate updates
+}, 1900); // Use a smaller interval for more accurate updates
