@@ -5,7 +5,7 @@ body {
     height: 100vh; /* Occupy full viewport height */
     padding: 0;
     margin: 0;
-    overflow: hidden; /* Prevent scrollbars during animation */
+    overflow: hidden; /* Prevent scrollbars */
 }
 
 .breathing-visual {
@@ -16,13 +16,13 @@ body {
 }
 
 .breathing-box {
-    width: 100px; /* Base diameter */
+    width: 100px;
     height: 100px;
     background-color: #4682B4; /* Steel blue */
     border-radius: 50%; /* Circular shape */
     border: 5px solid transparent; /* Transparent base border */
-    animation: breathing-cycle 19s infinite; /* Repeat every 19 seconds */
     position: relative;
+    animation: breathing-cycle 19s; /* 19-second cycle */
 }
 
 .breathing-text {
@@ -35,21 +35,28 @@ body {
     color: white; /* White text for contrast */
 }
 
+#restart-button {
+    display: none;
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 @keyframes breathing-cycle {
     0% {
-        transform: scale(1); /* Start at base size */
+        transform: scale(1);
         border-color: #4682B4; /* Border color for inhale */
     }
     21.05% {
-        transform: scale(3); /* Inhale for 4 seconds (Expanding) */
-        border-color: #4682B4; /* Border color during inhale */
+        transform: scale(3); /* Inhale */
     }
     57.89% {
-        transform: scale(3); /* Hold for 7 seconds (Steady) */
+        transform: scale(3); /* Hold */
         border-color: #FFD700; /* Yellow during hold */
     }
     100% {
-        transform: scale(1); /* Exhale for 8 seconds (Contracting) */
+        transform: scale(1); /* Exhale */
         border-color: #DC143C; /* Red for exhale */
     }
 }

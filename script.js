@@ -1,26 +1,42 @@
-const breathingInstruction = document.getElementById('breathing-instruction');
+// Ensure the script runs only after the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", () => {
+    const breathingInstruction = document.getElementById('breathing-instruction');
+    const restartButton = document.getElementById('restart-button');
 
-// Function to update breathing instruction text based on time in the cycle
-function updateInstruction(time) {
-    if (time >= 0 && time < 4) { // Inhale phase (first 4 seconds)
-        breathingInstruction.textContent = 'Inhale';
-    } else if (time >= 4 && time < 11) { // Hold phase (4-11 seconds)
-        breathingInstruction.textContent = 'Hold';
-    } else if (time >= 11 && time < 19) { // Exhale phase (11-19 seconds)
-        breathingInstruction.textContent = 'Exhale';
+    function updateInstruction(time) {
+        if (time >= 0 && time < 4) {
+            breathingInstruction.textContent = 'Inhale';
+        } else if (time >= 4 && time < 11) {
+            breathingInstruction.textContent = 'Hold';
+        } else if (time >= 11 && time < 19) {
+            breathingInstruction.textContent = 'Exhale';
+        }
     }
-}
 
-// Function to get the current time in the 19-second cycle
-function getCycleTime() {
-    const cycleLength = 19000; // 19-second cycle
-    const now = new Date().getTime();
-    const cycleStart = now - (now % cycleLength);
-    return (now - cycleStart) / 1000; // Return time in seconds
-}
+    function startBreathingCycle() {
+        const startTime = new Date().getTime();
+        let interval;
 
-// Set an interval to update the instruction text
-setInterval(() => {
-    const timeInSeconds = getCycleTime();
-    updateInstruction(timeInSeconds);
-}, 1900); // Use a smaller interval for more accurate updates
+        interval = setInterval(() => {
+            const now = new Date().getTime();
+            const timeInSeconds = (now - startTime) / 1000;
+
+            if (timeInSeconds >= 19) {
+                clearInterval(interval); // Stop the cycle after 19 seconds
+                breathingInstruction.textContent = 'Cycle Complete';
+                restartButton.style.display = 'block'; // Show the restart button
+            } else {
+                updateInstruction(timeInSeconds); // Continue updating during the cycle
+            }
+        }, 1000); // 1-second interval
+    }
+
+    // Start the breathing cycle when the page is loaded
+    startBreathingCycle();
+
+    // Restart the cycle when the button is clicked
+    restartButton.addEventListener('click', () => {
+        restartButton.style.display = 'none'; // Hide the restart button
+        startBreathingCycle(); // Restart the cycle
+    });
+});
